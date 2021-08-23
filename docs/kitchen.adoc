@@ -1,0 +1,17 @@
+== Kitchen
+
+'''
+
+=== GET Kitchen detail
+
+*Path params*
+include::{snippets}/kitchen/get-detail/path-parameters.adoc[]
+
+==== 200 Response
+
+include::{snippets}/kitchen/get-detail/http-response.adoc[]
+include::{snippets}/kitchen/get-detail/response-fields.adoc[]
+
+==== 404 Coffee machine not found
+
+include::{snippets}/kitchen/not-found/http-response.adoc[]

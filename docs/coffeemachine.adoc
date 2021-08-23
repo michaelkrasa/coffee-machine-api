@@ -1,0 +1,72 @@
+== Coffee machine
+
+'''
+
+=== GET Coffee machine state
+
+*Path params*
+include::{snippets}/coffee-machine/get-state/path-parameters.adoc[]
+
+*Request*
+include::{snippets}/coffee-machine/get-state/httpie-request.adoc[]
+
+==== 200 Response
+
+include::{snippets}/coffee-machine/get-state/http-response.adoc[]
+include::{snippets}/coffee-machine/get-state/response-fields.adoc[]
+
+==== 404 Coffee machine not found
+
+include::{snippets}/coffee-machine/coffee-machine-not-found/http-response.adoc[]
+
+=== GET Coffee machine detail
+
+*Path params*
+include::{snippets}/coffee-machine/get-detail/path-parameters.adoc[]
+
+==== 200 Response
+
+include::{snippets}/coffee-machine/get-detail/http-response.adoc[]
+include::{snippets}/coffee-machine/get-detail/response-fields.adoc[]
+
+==== 404 Coffee machine not found
+
+include::{snippets}/coffee-machine/coffee-machine-not-found/http-response.adoc[]
+
+=== PUT Make coffee
+
+*Path params*
+include::{snippets}/coffee-machine/make-coffee/path-parameters.adoc[]
+
+*Request param*
+include::{snippets}/coffee-machine/make-coffee/request-parameters.adoc[]
+
+==== 200 Response
+include::{snippets}/coffee-machine/make-coffee/http-response.adoc[]
+
+==== 400 Coffee type doesn't exist
+include::{snippets}/coffee-machine/make-coffee/type-doesnt-exist/http-response.adoc[]
+
+==== 400 Coffee type not supported by machine
+include::{snippets}/coffee-machine/make-coffee/type-not-supported/http-response.adoc[]
+
+==== 404 Coffee machine not found
+include::{snippets}/coffee-machine/coffee-machine-not-found/http-response.adoc[]
+
+==== 409 Coffee machine in incorrect state
+include::{snippets}/coffee-machine/make-coffee/incorrect-state/http-response.adoc[]
+
+=== PUT Remove cup
+
+*Path params*
+include::{snippets}/coffee-machine/remove-cup/path-parameters.adoc[]
+
+==== 200 Response
+include::{snippets}/coffee-machine/remove-cup/http-response.adoc[]
+
+==== 404 Coffee machine not found
+
+include::{snippets}/coffee-machine/coffee-machine-not-found/http-response.adoc[]
+
+==== 409 Coffee machine in incorrect state
+include::{snippets}/coffee-machine/remove-cup/incorrect-state/http-response.adoc[]
