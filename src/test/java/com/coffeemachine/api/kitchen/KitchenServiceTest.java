@@ -5,6 +5,8 @@ import static com.coffeemachine.api.coffeemachine.CoffeeType.AMERICANO;
 import static com.coffeemachine.api.coffeemachine.CoffeeType.CAPPUCCINO;
 import static com.coffeemachine.api.coffeemachine.CoffeeType.ESPRESSO;
 import static com.coffeemachine.api.coffeemachine.CoffeeType.LATTE;
+import com.coffeemachine.api.exception.ResourceNotFoundException;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -69,5 +71,12 @@ public class KitchenServiceTest {
         assertEquals(kitchens.get(1).getDescription(), k2.getDescription());
         assertEquals(kitchens.get(1).getCoffeeMachines().get(0).getId(), k2.getCoffeeMachines().get(0).getId().toString());
         assertEquals(kitchens.get(1).getCoffeeMachines().get(1).getId(), k2.getCoffeeMachines().get(1).getId().toString());
+    }
+
+    @Test
+    void kitchenDoesntExist() {
+        Kitchen k = new Kitchen(0, "bb");
+        assertThatThrownBy(() -> kitchenService.getDetail(k.getId()))
+            .isExactlyInstanceOf(ResourceNotFoundException.class);
     }
 }
